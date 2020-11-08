@@ -1,6 +1,6 @@
 package com.shrikanthravi.chatview.activities;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.transition.TransitionInflater;
 import android.view.View;
@@ -26,7 +26,7 @@ public class ImageFFActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image_ff);
 
         photoView = findViewById(R.id.photoView);
-        Picasso.with(getApplicationContext()).load(getIntent().getStringExtra("photoURI")).into(photoView);
+        Picasso.get().load(getIntent().getStringExtra("photoURI")).into(photoView);
         getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.image_transition));
         photoView.setTransitionName("photoTransition");
     }

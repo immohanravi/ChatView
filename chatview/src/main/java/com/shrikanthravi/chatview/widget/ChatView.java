@@ -2,19 +2,18 @@ package com.shrikanthravi.chatview.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -46,7 +45,7 @@ public class ChatView extends RelativeLayout {
     protected RelativeLayout mLayoutRoot;
     protected RecyclerView chatRV;
     protected LinearLayout sendLL;
-    protected MaterialRippleLayout sendMRL;
+    protected ImageView sendMRL;
     protected HorizontalScrollView moreHSV;
     protected MaterialRippleLayout galleryMRL,videoMRL,cameraMRL,audioMRL,micMRL;
     protected ExpandIconView expandIconView;

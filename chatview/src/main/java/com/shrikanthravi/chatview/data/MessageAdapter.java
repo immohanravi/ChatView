@@ -4,48 +4,37 @@ package com.shrikanthravi.chatview.data;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
-import android.graphics.SurfaceTexture;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.provider.MediaStore;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
-import android.view.Surface;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.VideoView;
 
-import com.balysv.materialripple.MaterialRippleLayout;
 import com.lopei.collageview.CollageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.nostra13.universalimageloader.utils.DiskCacheUtils;
-import com.nostra13.universalimageloader.utils.L;
 import com.ohoussein.playpause.PlayPauseView;
 import com.shrikanthravi.chatview.R;
 import com.shrikanthravi.chatview.activities.ImageFFActivity;
@@ -56,11 +45,9 @@ import com.silencedut.expandablelayout.ExpandableLayout;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Handler;
 
 
 import static android.content.ContentValues.TAG;
@@ -1242,7 +1229,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             holder1.leftTimeTV.setText(message.getTime());
 
             if(message.getUserIcon()!=null) {
-                Picasso.with(context).load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
+                Picasso.get().load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
             }
             holder1.senderNameTV.setText(message.getUserName());
         }
@@ -1252,7 +1239,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 holder1.rightTV.setText(message.getBody());
                 holder1.rightTimeTV.setText(message.getTime());
                 if(message.getUserIcon()!=null) {
-                    Picasso.with(context).load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
+                    Picasso.get().load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
                 }
                 holder1.senderNameTV.setText(message.getUserName());
             }
@@ -1261,13 +1248,13 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     final LeftImageViewHolder holder1 =(LeftImageViewHolder) holder;
 
                     if(message.getUserIcon()!=null) {
-                        Picasso.with(context).load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
+                        Picasso.get().load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
                     }
                     holder1.senderNameTV.setText(message.getUserName());
                     if (message.getImageList().get(0) != null && !message.getImageList().get(0).equals("")) {
                         final File image = DiskCacheUtils.findInCache(message.getImageList().get(0).toString(), imageLoader.getDiskCache());
                         if (image!= null && image.exists()) {
-                            Picasso.with(context).load(image).into(holder1.leftIV);
+                            Picasso.get().load(image).into(holder1.leftIV);
                         } else {
                             imageLoader.loadImage(message.getImageList().get(0).toString(), new ImageLoadingListener() {
                                 @Override
@@ -1282,7 +1269,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                                 @Override
                                 public void onLoadingComplete(String s, View view, final Bitmap bitmap) {
-                                    Picasso.with(context).load(s).into(holder1.leftIV);
+                                    Picasso.get().load(s).into(holder1.leftIV);
 
                                 }
 
@@ -1314,14 +1301,14 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         final RightImageViewHolder holder1 =(RightImageViewHolder) holder;
 
                         if(message.getUserIcon()!=null) {
-                            Picasso.with(context).load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
+                            Picasso.get().load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
                         }
                         holder1.senderNameTV.setText(message.getUserName());
 
                         if (message.getImageList().get(0) != null && !message.getImageList().get(0).equals("")) {
                             final File image = DiskCacheUtils.findInCache(message.getImageList().get(0).toString(), imageLoader.getDiskCache());
                             if (image!= null && image.exists()) {
-                                Picasso.with(context).load(image).into(holder1.rightIV);
+                                Picasso.get().load(image).into(holder1.rightIV);
                             } else {
                                 imageLoader.loadImage(message.getImageList().get(0).toString(), new ImageLoadingListener() {
                                     @Override
@@ -1336,7 +1323,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                                     @Override
                                     public void onLoadingComplete(String s, View view, final Bitmap bitmap) {
-                                        Picasso.with(context).load(s).into(holder1.rightIV);
+                                        Picasso.get().load(s).into(holder1.rightIV);
 
                                     }
 
@@ -1367,7 +1354,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                             final LeftImagesViewHolder holder1 =(LeftImagesViewHolder) holder;
 
                             if(message.getUserIcon()!=null) {
-                                Picasso.with(context).load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
+                                Picasso.get().load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
                             }
                             holder1.senderNameTV.setText(message.getUserName());
 
@@ -1404,7 +1391,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                 final RightImagesViewHolder holder1 = (RightImagesViewHolder) holder;
 
                                 if(message.getUserIcon()!=null) {
-                                    Picasso.with(context).load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
+                                    Picasso.get().load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
                                 }
                                 holder1.senderNameTV.setText(message.getUserName());
                                 List<String> imageList = new ArrayList<>();
@@ -1451,7 +1438,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                         holder1.videoLL.addView(videoPlayer);
                                         videoPlayer.loadVideo(message.getVideoUri().toString(),message);
                                         if(message.getUserIcon()!=null) {
-                                            Picasso.with(context).load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
+                                            Picasso.get().load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
                                         }
 
                                         videoPlayer.setOnClickListener(new View.OnClickListener() {
@@ -1486,7 +1473,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                             //adjustAspectRatio(videoPlayer,videoPlayer.getMp().getVideoWidth(),videoPlayer.getMp().getVideoHeight());
 
                                             if (message.getUserIcon() != null) {
-                                                Picasso.with(context).load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
+                                                Picasso.get().load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
                                             }
 
                                             videoPlayer.setOnClickListener(new View.OnClickListener() {
@@ -1513,7 +1500,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                                                 holder1.leftTimeTV.setText(message.getTime());
 
                                                 if(message.getUserIcon()!=null) {
-                                                    Picasso.with(context).load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
+                                                    Picasso.get().load(message.getUserIcon()).into(holder1.leftBubbleIconIV);
                                                 }
                                                 holder1.senderNameTV.setText(message.getUserName());
 
@@ -1525,7 +1512,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                                                 holder1.rightTimeTV.setText(message.getTime());
                                                 if(message.getUserIcon()!=null) {
-                                                    Picasso.with(context).load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
+                                                    Picasso.get().load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
                                                 }
 
 

@@ -1,16 +1,13 @@
 package com.shrikanthravi.chatviewlibrary;
 
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.Explode;
 import android.transition.TransitionInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.Window;
 
 import com.github.chrisbanes.photoview.PhotoView;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 public class ImageFFActivity extends AppCompatActivity {
@@ -22,7 +19,7 @@ public class ImageFFActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_ff);
         photoView = findViewById(R.id.photoView);
-        Picasso.with(getApplicationContext()).load(getIntent().getStringExtra("photoURI")).into(photoView);
+        Picasso.get().load(getIntent().getStringExtra("photoURI")).into(photoView);
         getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.image_transition));
         photoView.setTransitionName("photoTransition");
 
