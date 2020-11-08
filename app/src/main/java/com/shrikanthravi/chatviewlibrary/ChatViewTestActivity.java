@@ -56,6 +56,9 @@ public class ChatViewTestActivity extends AppCompatActivity {
         chatView.setVideoMRLVisibility(View.GONE);
         chatView.setMicMRLVisibility(View.GONE);
 
+        chatView.showSenderName(false);
+        chatView.showLeftBubbleIcon(false);
+        chatView.showRightBubbleIcon(false);
         messageET = findViewById(R.id.messageET1);
         messageET.requestFocus();
 

@@ -740,6 +740,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             showRightBubbleIcon(showRightBubbleIcon);
             FontChanger fontChanger = new FontChanger(typeface);
             fontChanger.replaceFonts((ViewGroup)view);
+
             view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {

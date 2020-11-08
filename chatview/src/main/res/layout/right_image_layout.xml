@@ -66,12 +66,13 @@
                     android:id="@+id/rightBubbleIconCV"
                     app:cardBackgroundColor="@color/colorAccent3"
                     app:cardElevation="2.5dp">
+
                     <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
                         android:id="@+id/rightBubbleIconIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/profile_icon"/>
+                        android:src="@drawable/profile_icon" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
