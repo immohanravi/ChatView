@@ -56,6 +56,9 @@ public class ChatViewTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_view_test);
 
         chatView = findViewById(R.id.chatView);
+        chatView.setAudioMRLVisibility(View.GONE);
+        chatView.setVideoMRLVisibility(View.GONE);
+        chatView.setMicMRLVisibility(View.GONE);
 
         messageET = findViewById(R.id.messageET1);
         messageET.requestFocus();

@@ -413,4 +413,17 @@ public class ChatView extends RelativeLayout {
             }
         }
     }
+
+
+    public void setMicMRLVisibility(int i){
+        micMRL.setVisibility(i);
+    }
+
+    public void setVideoMRLVisibility(int i){
+        videoMRL.setVisibility(i);
+    }
+    public void setAudioMRLVisibility(int i){
+        audioMRL.setVisibility(i);
+    }
+
 }
