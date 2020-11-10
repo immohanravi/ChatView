@@ -45,6 +45,7 @@ import com.silencedut.expandablelayout.ExpandableLayout;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.LineNumberReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -277,7 +278,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             showSenderName(showSenderName);
             showLeftBubbleIcon(showLeftBubbleIcon);
             setTextSize(textSize);
-
+            leftEL.setExpand(true);
             FontChanger fontChanger = new FontChanger(typeface);
             fontChanger.replaceFonts((ViewGroup)view);
             view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -338,13 +339,14 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         public ImageView rightMessageStatusIV,rightBubbleIconIV;
         public ExpandableLayout rightEL;
         public CardView rightBubbleIconCV;
-
+        public LinearLayout rightlinarlayout;
         public RightTextViewHolder(View view) {
             super(view);
 
+            rightlinarlayout = view.findViewById(R.id.rightlinearlayout);
             rightTV = view.findViewById(R.id.rightTV);
             rightTimeTV = view.findViewById(R.id.rightTimeTV);
-            rightEL = view.findViewById(R.id.rightEL);
+            //rightEL = view.findViewById(R.id.rightEL);
             senderNameTV = view.findViewById(R.id.senderNameTV);
             rightBubbleIconCV = view.findViewById(R.id.rightBubbleIconCV);
             rightBubbleIconIV = view.findViewById(R.id.rightBubbleIconIV);
@@ -357,7 +359,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             setTextSize(textSize);
             FontChanger fontChanger = new FontChanger(typeface);
             fontChanger.replaceFonts((ViewGroup)view);
-
+            //rightEL.setExpand(true);
             view.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
@@ -370,7 +372,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
 
         public void setBackgroundColor(int color){
-            Drawable backgroundDrawable = DrawableCompat.wrap(rightTV.getBackground()).mutate();
+            Drawable backgroundDrawable = DrawableCompat.wrap(rightlinarlayout.getBackground()).mutate();
             DrawableCompat.setTint(backgroundDrawable,color);
         }
 
@@ -428,7 +430,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             senderNameTV = view.findViewById(R.id.senderNameTV);
             leftBubbleIconIV = view.findViewById(R.id.leftBubbleIconIV);
             leftBubbleIconCV = view.findViewById(R.id.leftBubbleIconCV);
-
+            leftEL.setExpand(true);
             setBackgroundColor(leftBubbleLayoutColor);
             setSenderNameTextColor(senderNameTextColor);
             showSenderName(showSenderName);
