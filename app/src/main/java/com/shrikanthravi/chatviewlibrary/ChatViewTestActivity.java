@@ -82,6 +82,7 @@ public class ChatViewTestActivity extends AppCompatActivity {
                     message.setTime(getTime());
                     message.setUserName("Groot");
                     message.setUserIcon(Uri.parse("android.resource://com.shrikanthravi.chatviewlibrary/drawable/groot"));
+                    message.setViewed(true);
                     chatView.addMessage(message);
 
                     switchbool=false;

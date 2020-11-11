@@ -17,7 +17,7 @@ public class Message {
     protected String RightSimpleMessage = "RIGHT";
     protected String LeftSingleImage = "LeftImage";
     protected String RightSingleImage = "RightImage";
-
+    protected boolean isViewed = false;
     //Can hold upto 11 images.
     protected String LeftMultipleImages = "LeftImages";
     protected String RightMultipleImages = "RightImages";
@@ -57,6 +57,15 @@ public class Message {
 
     public Message(){
 
+    }
+
+
+    public boolean isViewed() {
+        return isViewed;
+    }
+
+    public void setViewed(boolean viewed) {
+        isViewed = viewed;
     }
 
     public Uri getAudioUri() {

@@ -78,7 +78,7 @@
                             android:id="@+id/tick"
                             android:gravity="right"
                             android:letterSpacing="-0.3"
-                            android:textColor="#eb572b"
+                            android:textColor="@color/transparent_black_hex_4"
                             android:paddingBottom="5dp"/>
                     </LinearLayout>
                 </LinearLayout>

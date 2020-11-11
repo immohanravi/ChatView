@@ -342,6 +342,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         public ExpandableLayout rightEL;
         public CardView rightBubbleIconCV;
         public LinearLayout rightlinarlayout;
+        public TextView tick;
         public RightTextViewHolder(View view) {
             super(view);
 
@@ -349,6 +350,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             rightTV = view.findViewById(R.id.rightTV);
             rightTimeTV = view.findViewById(R.id.rightTimeTV);
             //rightEL = view.findViewById(R.id.rightEL);
+            tick = view.findViewById(R.id.tick);
             senderNameTV = view.findViewById(R.id.senderNameTV);
             rightBubbleIconCV = view.findViewById(R.id.rightBubbleIconCV);
             rightBubbleIconIV = view.findViewById(R.id.rightBubbleIconIV);
@@ -1246,6 +1248,13 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 holder1.rightTimeTV.setText(message.getTime());
                 if(message.getUserIcon()!=null) {
                     Picasso.with(context).load(message.getUserIcon()).into(holder1.rightBubbleIconIV);
+                }
+                if(message.isViewed){
+                    //holder1.tick.setText(R.string.ticktwice);
+                    holder1.tick.setTextColor(context.getResources().getColor(R.color.blue));
+                }else {
+                   // holder1.tick.setText(R.string.tick);
+                    holder1.tick.setTextColor(context.getResources().getColor(R.color.transparent_black_hex_4));
                 }
                 holder1.senderNameTV.setText(message.getUserName());
             }

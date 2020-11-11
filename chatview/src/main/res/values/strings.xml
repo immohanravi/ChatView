@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">ChatView</string>
     <string name="tick">✓</string>
-    <string name="ticktwice">✓</string>
+    <string name="ticktwice">✓✓</string>
 </resources>
