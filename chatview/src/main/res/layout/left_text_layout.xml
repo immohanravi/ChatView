@@ -4,21 +4,14 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.silencedut.expandablelayout.ExpandableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        app:expWithParentScroll="true"
-        android:id="@+id/leftEL"
-        app:expDuration = "300"
-        app:expExpandScrollTogether = "false"
-        android:layout_marginRight="100dp"
-        android:layout_alignParentLeft="true">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
             android:orientation="vertical">
 
             <TextView
@@ -51,35 +44,63 @@
                         android:scaleType="centerCrop"
                         android:src="@drawable/profile_icon"/>
                 </androidx.cardview.widget.CardView>
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:text="Hello"
-                    android:layout_gravity="left"
-                    android:id="@+id/leftTV"
-                    android:paddingLeft="15dp"
-                    android:textSize="17sp"
-                    android:paddingRight="15dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:background="@drawable/left_tv_bg"/>
+                    android:id="@+id/leftlinearlayout"
+                    android:background="@drawable/left_tv_bg"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:text="Hello"
+                        android:layout_gravity="left"
+                        android:id="@+id/leftTV"
+                        android:paddingLeft="15dp"
+                        android:textSize="17sp"
+                        android:paddingRight="15dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:padding="5dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:text="✓"
+                            android:id="@+id/tick"
+                            android:gravity="left"
+                            android:letterSpacing="-0.3"
+                            android:textColor="@color/colorAccent1"
+                            android:paddingBottom="5dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12sp"
+                            android:text=""
+                            android:id="@+id/leftTimeTV"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_gravity="left"
+                            android:gravity="left|center"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text=""
-            android:id="@+id/leftTimeTV"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="2dp"
-            android:layout_gravity="left"
-            android:gravity="left|center"/>
 
-    </com.silencedut.expandablelayout.ExpandableLayout>
+
+
 
 </RelativeLayout>
