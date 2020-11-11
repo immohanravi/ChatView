@@ -74,11 +74,11 @@
                             android:layout_width="30dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
-                            android:text="✓"
+                            android:text="✓✓"
                             android:id="@+id/tick"
                             android:gravity="right"
                             android:letterSpacing="-0.3"
-                            android:textColor="@color/colorAccent"
+                            android:textColor="#eb572b"
                             android:paddingBottom="5dp"/>
                     </LinearLayout>
                 </LinearLayout>

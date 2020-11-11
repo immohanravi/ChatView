@@ -71,16 +71,6 @@
                         android:padding="5dp"
                         android:orientation="horizontal">
                         <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="left"
-                            android:text="✓"
-                            android:id="@+id/tick"
-                            android:gravity="left"
-                            android:letterSpacing="-0.3"
-                            android:textColor="@color/colorAccent1"
-                            android:paddingBottom="5dp"/>
-                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
