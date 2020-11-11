@@ -42,6 +42,45 @@ public class Message {
     protected Uri audioUri;
     protected int indexPosition;
 
+
+    String timeInMilli;
+    String rowid;
+    String sending_uuid;
+    String receiver_uuid;
+
+
+    public String getRowid() {
+        return rowid;
+    }
+
+    public void setRowid(String rowid) {
+        this.rowid = rowid;
+    }
+
+    public String getSending_uuid() {
+        return sending_uuid;
+    }
+
+    public void setSending_uuid(String sending_uuid) {
+        this.sending_uuid = sending_uuid;
+    }
+
+    public String getReceiver_uuid() {
+        return receiver_uuid;
+    }
+
+    public void setReceiver_uuid(String receiver_uuid) {
+        this.receiver_uuid = receiver_uuid;
+    }
+
+    public String getTimeInMilli() {
+        return timeInMilli;
+    }
+
+    public void setTimeInMilli(String timeInMilli) {
+        this.timeInMilli = timeInMilli;
+    }
+
     public enum MessageType{
         LeftSimpleMessage,
         RightSimpleImage,
