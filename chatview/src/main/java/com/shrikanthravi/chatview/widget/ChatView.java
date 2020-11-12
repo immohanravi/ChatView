@@ -425,4 +425,14 @@ public class ChatView extends RelativeLayout {
         audioMRL.setVisibility(i);
     }
 
+    public void setNotifyDataSetChanged(){
+        messageAdapter.notifyDataSetChanged();
+        mLayoutRoot.invalidate();
+    }
+
+    public void setNotifyDataSetChanged(int position){
+        messageAdapter.notifyItemChanged(position);
+        mLayoutRoot.invalidate();
+    }
+
 }
