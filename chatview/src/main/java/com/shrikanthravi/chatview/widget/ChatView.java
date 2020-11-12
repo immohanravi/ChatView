@@ -5,6 +5,9 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -85,6 +88,23 @@ public class ChatView extends RelativeLayout {
                 0, 0);
         setAttributes(a);
         a.recycle();
+
+    }
+
+    AddTextChangeListener addTextChangeListener;
+
+    public void setAddTextChangeListener(AddTextChangeListener addTextChangeListener) {
+        this.addTextChangeListener = addTextChangeListener;
+    }
+
+    public interface AddTextChangeListener{
+
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) ;
+
+        public void onTextChanged(CharSequence s, int start, int before, int count);
+
+
+        public void afterTextChanged(Editable s) ;
 
     }
 
@@ -187,6 +207,28 @@ public class ChatView extends RelativeLayout {
 
 
 
+        messageET.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                if(addTextChangeListener!=null){
+                    addTextChangeListener.beforeTextChanged(s,start,count,after);
+                }
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(addTextChangeListener!=null){
+                    addTextChangeListener.onTextChanged(s,start,before,count);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(addTextChangeListener!=null){
+                    addTextChangeListener.afterTextChanged(s);
+                }
+            }
+        });
 
 
     }
